@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity TrafficLight is
+    Port (
+        clk    : in  STD_LOGIC;
+        reset  : in  STD_LOGIC;
+        red    : out STD_LOGIC;
+        yellow : out STD_LOGIC;
+        green  : out STD_LOGIC
+    );
+end TrafficLight;
+
+architecture Behavioral of TrafficLight is
+    signal state : integer := 0;  -- 0 = Red, 1 = Green, 2 = Yellow
+begin
+            if state = 0 then
+                red <= '1';
+                yellow <= '0';
+                green <= '0';
+            elsif state = 1 then
+                red <= '0';
+                yellow <= '0';
+                green <= '1';
+            else
+                red <= '0';
+                yellow <= '1';
+                green <= '0';
+            end if;
+        end if;
+    end process;
+
+end Behavioral;
